@@ -36,6 +36,9 @@ export default function Header() {
             <a href="#faq" className="text-sm font-medium hover:text-primary transition-colors">
               Help & FAQ
             </a>
+            <a href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
+              Blog
+            </a>
             <ScrollButton
               targetId="upload-section"
               variant="outline"
@@ -68,37 +71,44 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Navigation - Simplified */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t bg-background/95">
-            <nav className="flex flex-col space-y-3">
-              <a
-                href="#features"
-                className="text-sm font-medium hover:text-primary transition-colors py-2 px-2 rounded-md hover:bg-muted/50"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Features
-              </a>
-              <a
-                href="#faq"
-                className="text-sm font-medium hover:text-primary transition-colors py-2 px-2 rounded-md hover:bg-muted/50"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Help & FAQ
-              </a>
-              <ScrollButton
-                targetId="upload-section"
-                variant="default"
-                size="sm"
-                className="w-full justify-center mt-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <Upload className="w-4 h-4 mr-2" />
-                Upload Images
-              </ScrollButton>
-            </nav>
-          </div>
-        )}
+                  {/* Mobile Navigation - Simplified */}
+          {isMenuOpen && (
+            <div className="md:hidden py-4 border-t bg-background/95">
+              <nav className="flex flex-col space-y-3">
+                <a
+                  href="#features"
+                  className="text-sm font-medium hover:text-primary transition-colors py-2 px-2 rounded-md hover:bg-muted/50"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Features
+                </a>
+                <a
+                  href="#faq"
+                  className="text-sm font-medium hover:text-primary transition-colors py-2 px-2 rounded-md hover:bg-muted/50"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Help & FAQ
+                </a>
+                <a
+                  href="/blog"
+                  className="text-sm font-medium hover:text-primary transition-colors py-2 px-2 rounded-md hover:bg-muted/50"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Blog
+                </a>
+                <ScrollButton
+                  targetId="upload-section"
+                  variant="default"
+                  size="sm"
+                  className="w-full justify-center mt-2"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Upload className="w-4 h-4 mr-2" />
+                  Upload Images
+                </ScrollButton>
+              </nav>
+            </div>
+          )}
       </div>
     </header>
   );
