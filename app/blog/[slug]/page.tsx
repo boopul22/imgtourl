@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { Calendar, Clock, User, ArrowLeft, Share2, Tag, TrendingUp, Target, Zap } from 'lucide-react';
+import { Calendar, Clock, User, ArrowLeft, Share2, Tag, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Link from 'next/link';
@@ -9,7 +9,7 @@ import BlogJsonLd from '@/components/seo/BlogJsonLd';
 import { getPublishedPosts, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-storage-supabase';
 import BlogPostCard from '@/components/blog/BlogPostCard';
 import Breadcrumbs from '@/components/blog/Breadcrumbs';
-import { generateBlogPostMetadata, analyzeContentForSEO } from '@/lib/seo-utils';
+import { generateBlogPostMetadata } from '@/lib/seo-utils';
 
 export const dynamic = 'force-dynamic';
 
@@ -53,8 +53,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const relatedPosts = await getRelatedPosts(post, 3);
 
-  // Dynamic SEO analysis
-  const seoAnalysis = analyzeContentForSEO(post.content, post.title, post.excerpt);
 
   const breadcrumbItems = [
     { label: 'Home', href: '/' },
@@ -141,48 +139,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         </section>
 
-        {/* SEO Analysis Panel */}
-        <div className="mt-12 pt-8 border-t">
-          <div className="bg-gradient-to-r from-brand-orange/10 to-blue-500/10 rounded-lg p-6">
-            <h3 className="text-lg font-semibold mb-4 flex items-center">
-              <TrendingUp className="w-5 h-5 mr-2 text-brand-orange" />
-              SEO Analysis
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-brand-orange">{seoAnalysis.seoScore}/100</div>
-                <div className="text-sm text-muted-foreground">SEO Score</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">{seoAnalysis.wordCount}</div>
-                <div className="text-sm text-muted-foreground">Word Count</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">{seoAnalysis.readabilityScore}%</div>
-                <div className="text-sm text-muted-foreground">Readability</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600">{seoAnalysis.suggestedKeywords.length}</div>
-                <div className="text-sm text-muted-foreground">Keywords Found</div>
-              </div>
-            </div>
-            
-            {/* Suggested Keywords */}
-            <div className="mt-4">
-              <h4 className="text-sm font-medium mb-2 flex items-center">
-                <Target className="w-4 h-4 mr-1 text-brand-orange" />
-                Suggested Keywords:
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {seoAnalysis.suggestedKeywords.slice(0, 8).map((keyword, index) => (
-                  <span key={index} className="px-2 py-1 bg-white dark:bg-gray-800 text-xs rounded border border-brand-orange/20">
-                    {keyword}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
 
         {/* Tags */}
         <div className="mt-8 pt-8 border-t">

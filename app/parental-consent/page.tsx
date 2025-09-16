@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Shield, Mail, Phone, FileText, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import PageLayout from '@/components/layout/PageLayout';
 
 export const metadata: Metadata = {
   title: 'Parental Consent Required - Image to URL Converter',
@@ -16,17 +17,13 @@ export const metadata: Metadata = {
 
 export default function ParentalConsentPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
+    <PageLayout 
+      title="Parental Consent Required"
+    >
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Shield className="w-10 h-10 text-blue-600 dark:text-blue-400" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Parental Consent Required
-            </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               To protect children's privacy online, we require parental consent for users under 13 years old.
             </p>
@@ -112,7 +109,7 @@ export default function ParentalConsentPage() {
                     Send us an email with your consent and verification documents
                   </p>
                   <a 
-                    href="mailto:bipul281b@gmail.com?subject=Parental Consent Request&body=I am writing to provide parental consent for my child to use the Image to URL Converter service. Please provide me with the necessary consent forms and verification process."
+                    href="mailto:blog.boopul@gmail.com?subject=Parental Consent Request&body=I am writing to provide parental consent for my child to use the Image to URL Converter service. Please provide me with the necessary consent forms and verification process."
                     className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
                   >
                     Send Email
@@ -192,8 +189,6 @@ export default function ParentalConsentPage() {
               </Button>
             </Link>
           </div>
-        </div>
-      </div>
-    </div>
+    </PageLayout>
   );
 }

@@ -69,12 +69,6 @@ export default function Header() {
             >
               Blog
             </a>
-            <Link
-              href="/media"
-              className="text-sm font-medium hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-orange focus-visible:ring-offset-2 rounded px-2 py-1"
-            >
-              Media
-            </Link>
             
             {/* Legal Pages Dropdown */}
             <div className="relative" ref={dropdownRef}>

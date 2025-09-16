@@ -263,7 +263,7 @@ export default function StructuredData({ type = 'website', data }: StructuredDat
       description: 'Leading free image hosting service providing instant URL generation for images. Best image to URL converter with unlimited free uploads.',
       url: baseUrl,
       logo: `${baseUrl}/logo.png`,
-      email: 'support@imagetourl.cloud',
+      email: 'blog.boopul@gmail.com',
       address: {
         addressCountry: 'IN'
       },

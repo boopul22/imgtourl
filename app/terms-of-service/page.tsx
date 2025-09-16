@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import Link from 'next/link';
+import PageLayout from '@/components/layout/PageLayout';
 
 export const metadata: Metadata = {
   title: 'Terms of Service - Image to URL Converter',
@@ -14,21 +15,10 @@ export const metadata: Metadata = {
 
 export default function TermsOfServicePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Terms of Service
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              Last updated: {new Date().toLocaleDateString('en-US', { 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
-              })}
-            </p>
-          </div>
+    <PageLayout 
+      title="Terms of Service" 
+      showLastUpdated={true}
+    >
 
           <Card className="mb-8">
             <CardHeader>
@@ -285,7 +275,7 @@ export default function TermsOfServicePage() {
               </p>
               <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                 <p className="text-gray-700 dark:text-gray-300">
-                  <strong>Email:</strong> bipul281b@gmail.com
+                  <strong>Email:</strong> blog.boopul@gmail.com
                 </p>
                 <p className="text-gray-700 dark:text-gray-300">
                   <strong>Website:</strong> <Link href="/" className="text-blue-600 hover:underline">https://imagetourl.cloud</Link>
@@ -299,8 +289,6 @@ export default function TermsOfServicePage() {
               ← Back to Home
             </Link>
           </div>
-        </div>
-      </div>
-    </div>
+    </PageLayout>
   );
 }

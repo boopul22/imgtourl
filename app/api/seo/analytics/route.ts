@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getPublishedPosts, getCategories } from '@/lib/blog-storage-supabase';
 import { analyzeContentForSEO } from '@/lib/seo-utils';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url || '');

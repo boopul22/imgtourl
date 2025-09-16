@@ -7,6 +7,7 @@ import {
   Target, TrendingUp, CheckCircle, Star
 } from 'lucide-react';
 import Link from 'next/link';
+import PageLayout from '@/components/layout/PageLayout';
 
 export const metadata: Metadata = {
   title: 'About Us - Image to URL Converter',
@@ -19,19 +20,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              About Image to URL Converter
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Hi! I'm Bipul Kumar, an indie developer and designer from India. I built ImageToURL to make one thing incredibly simple: 
-              turn any image into a fast, shareable link—no sign-ups, no friction, no drama.
-            </p>
-          </div>
+    <PageLayout 
+      title="About Image to URL Converter"
+      description="Hi! I'm Bipul Kumar, an indie developer and designer from India. I built ImageToURL to make one thing incredibly simple: turn any image into a fast, shareable link—no sign-ups, no friction, no drama."
+      maxWidth="6xl"
+    >
 
           {/* Mission Section */}
           <Card className="mb-16">
@@ -335,15 +328,15 @@ export default function AboutPage() {
                 <div className="grid md:grid-cols-3 gap-6">
                   <div className="text-center">
                     <h4 className="font-semibold mb-2 text-gray-800 dark:text-gray-200">General Inquiries</h4>
-                    <p className="text-gray-600 dark:text-gray-400">bipul281b@gmail.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">blog.boopul@gmail.com</p>
                   </div>
                   <div className="text-center">
                     <h4 className="font-semibold mb-2 text-gray-800 dark:text-gray-200">Support</h4>
-                    <p className="text-gray-600 dark:text-gray-400">bipul281b@gmail.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">blog.boopul@gmail.com</p>
                   </div>
                   <div className="text-center">
                     <h4 className="font-semibold mb-2 text-gray-800 dark:text-gray-200">Legal</h4>
-                    <p className="text-gray-600 dark:text-gray-400">bipul281b@gmail.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">blog.boopul@gmail.com</p>
                   </div>
                 </div>
 
@@ -377,8 +370,6 @@ export default function AboutPage() {
               </Button>
             </Link>
           </div>
-        </div>
-      </div>
-    </div>
+    </PageLayout>
   );
 }

@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Shield, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
 import Link from 'next/link';
+import PageLayout from '@/components/layout/PageLayout';
 
 export const metadata: Metadata = {
   title: 'Content Guidelines - Image to URL Converter',
@@ -15,19 +16,14 @@ export const metadata: Metadata = {
 
 export default function ContentGuidelinesPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
+    <PageLayout 
+      title="Content Guidelines"
+      description="Keep our community safe by following these guidelines when uploading images to our service."
+    >
           <div className="text-center mb-8">
             <div className="w-20 h-20 bg-red-100 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <Shield className="w-10 h-10 text-red-600 dark:text-red-400" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Content Guidelines
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Keep our community safe by following these guidelines when uploading images to our service.
-            </p>
           </div>
 
           {/* Critical Warning */}
@@ -251,7 +247,7 @@ export default function ContentGuidelinesPage() {
               
               <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                 <p className="text-gray-700 dark:text-gray-300">
-                  <strong>Report Email:</strong> <a href="mailto:abuse@imagetourl.cloud" className="text-blue-600 hover:underline">abuse@imagetourl.cloud</a>
+                  <strong>Report Email:</strong> <a href="mailto:blog.boopul@gmail.com" className="text-blue-600 hover:underline">blog.boopul@gmail.com</a>
                 </p>
                 <p className="text-gray-700 dark:text-gray-300 mt-2">
                   <strong>Include:</strong> Image URL, description of violation, and any additional context
@@ -290,8 +286,6 @@ export default function ContentGuidelinesPage() {
               ← Back to Home
             </Link>
           </div>
-        </div>
-      </div>
-    </div>
+    </PageLayout>
   );
 }

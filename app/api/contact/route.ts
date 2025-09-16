@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     // Since we don't have email service, we'll create a mailto link
     // and return the contact information for the user to send manually
     const emailContent = {
-      to: 'bipul281b@gmail.com',
+      to: 'blog.boopul@gmail.com',
       subject: `Contact Form: ${validatedData.subject}`,
       body: `
 Name: ${validatedData.firstName} ${validatedData.lastName}
@@ -59,7 +59,7 @@ Sent from ImageURL Contact Form
       message: 'Contact form submitted successfully',
       gmailUrl,
       mailtoUrl,
-      fallbackEmail: 'bipul281b@gmail.com'
+      fallbackEmail: 'blog.boopul@gmail.com'
     });
     
   } catch (error) {

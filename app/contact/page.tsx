@@ -12,6 +12,7 @@ import {
 import Link from 'next/link';
 import { useState } from 'react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import PageLayout from '@/components/layout/PageLayout';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -111,19 +112,11 @@ export default function ContactPage() {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Get in Touch
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Have questions, need support, or want to share feedback? I'd love to hear from you! 
-              As the developer behind ImageToURL, I'm here to help make your image sharing experience the best it can be.
-            </p>
-          </div>
+    <PageLayout 
+      title="Get in Touch"
+      description="Have questions, need support, or want to share feedback? I'd love to hear from you! As the developer behind ImageToURL, I'm here to help make your image sharing experience the best it can be."
+      maxWidth="6xl"
+    >
 
           {/* Contact Methods Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
@@ -138,10 +131,10 @@ export default function ContactPage() {
                 Get help with technical issues and general questions
               </p>
               <a 
-                href="mailto:bipul281b@gmail.com" 
+                href="mailto:blog.boopul@gmail.com" 
                 className="text-blue-600 hover:underline font-medium"
               >
-                bipul281b@gmail.com
+                blog.boopul@gmail.com
               </a>
             </Card>
 
@@ -156,10 +149,10 @@ export default function ContactPage() {
                 Business partnerships and general information
               </p>
               <a 
-                href="mailto:bipul281b@gmail.com" 
+                href="mailto:blog.boopul@gmail.com" 
                 className="text-blue-600 hover:underline font-medium"
               >
-                bipul281b@gmail.com
+                blog.boopul@gmail.com
               </a>
             </Card>
 
@@ -174,10 +167,10 @@ export default function ContactPage() {
                 Privacy concerns and legal matters
               </p>
               <a 
-                href="mailto:bipul281b@gmail.com" 
+                href="mailto:blog.boopul@gmail.com" 
                 className="text-blue-600 hover:underline font-medium"
               >
-                bipul281b@gmail.com
+                blog.boopul@gmail.com
               </a>
             </Card>
 
@@ -364,8 +357,8 @@ export default function ContactPage() {
                 <div className="text-center text-sm text-gray-600 dark:text-gray-400">
                   <p>
                     Can't submit the form? Email us directly at{' '}
-                    <a href="mailto:bipul281b@gmail.com" className="text-blue-600 hover:underline">
-                      bipul281b@gmail.com
+                    <a href="mailto:blog.boopul@gmail.com" className="text-blue-600 hover:underline">
+                      blog.boopul@gmail.com
                     </a>
                   </p>
                 </div>
@@ -494,7 +487,7 @@ export default function ContactPage() {
                   </h4>
                   <p className="text-gray-600 dark:text-gray-400">
                     Yes, we're always interested in exploring partnerships and collaborations. 
-                    Please reach out to bipul281b@gmail.com for business inquiries.
+                    Please reach out to blog.boopul@gmail.com for business inquiries.
                   </p>
                 </div>
 
@@ -534,8 +527,6 @@ export default function ContactPage() {
               </Link>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+    </PageLayout>
   );
 }

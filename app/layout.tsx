@@ -14,7 +14,10 @@ import AgeVerification from '@/components/ui/age-verification';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Free Image to URL Converter - No Sign-up Required',
+  title: {
+    default: 'Free Image to URL Converter - No Sign-up Required',
+    template: '%s | Image to URL',
+  },
   description: 'Get shareable URLs instantly. 100% free image hosting with no sign-up required. Supports JPG, PNG, GIF up to 10MB',
   icons: [
     { url: '/favicon.ico', sizes: 'any' },
@@ -76,8 +79,6 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: '/',
     siteName: 'Free Image to URL Converter',
-    title: 'Free Image to URL Converter - No Sign-up Required',
-    description: 'Get shareable URLs instantly. 100% free image hosting with no sign-up required. Supports JPG, PNG, GIF up to 10MB',
     images: [
       {
         url: '/og-image.jpg',
@@ -89,8 +90,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Free Image to URL Converter - No Sign-up Required',
-    description: 'Get shareable URLs instantly. 100% free image hosting with no sign-up required. Supports JPG, PNG, GIF up to 10MB',
     creator: '@imageurl',
     images: ['/og-image.jpg'],
   },
