@@ -1,10 +1,10 @@
 import { MetadataRoute } from 'next';
-import { getAllPosts } from '@/lib/blog-data';
+import { getAllPosts, BlogPost } from '@/lib/blog-data';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://imagetourl.cloud';
   
-  let posts;
+  let posts: BlogPost[] = [];
   try {
     posts = await getAllPosts();
   } catch (error) {

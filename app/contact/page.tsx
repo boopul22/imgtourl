@@ -1,4 +1,5 @@
-import { Metadata } from 'next';
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -12,55 +13,6 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import PageLayout from '@/components/layout/PageLayout';
-
-export const metadata: Metadata = {
-  title: 'Contact Us - Get Help & Support | ImageURL',
-  description: 'Need help with image hosting or have questions? Contact our support team for technical assistance, feature requests, and general inquiries about our free image to URL service.',
-  keywords: [
-    'contact support',
-    'image hosting help',
-    'technical support',
-    'customer service',
-    'help center',
-    'support team',
-    'contact form',
-    'get help',
-    'image hosting support',
-    'imageurl contact'
-  ],
-  openGraph: {
-    title: 'Contact Us - Get Help & Support | ImageURL',
-    description: 'Need help with image hosting or have questions? Contact our support team for technical assistance and general inquiries.',
-    type: 'website',
-    url: '/contact',
-    siteName: 'Free Image to URL Converter',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Contact Us - ImageURL Support',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact Us - Get Help & Support | ImageURL',
-    description: 'Need help with image hosting or have questions? Contact our support team for technical assistance.',
-    creator: '@imageurl',
-    site: '@imageurl',
-    images: ['/og-image.jpg'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/contact',
-  },
-};
-
-'use client';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
