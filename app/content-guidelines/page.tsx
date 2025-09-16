@@ -12,6 +12,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  alternates: {
+    canonical: '/content-guidelines',
+  },
 };
 
 export default function ContentGuidelinesPage() {
