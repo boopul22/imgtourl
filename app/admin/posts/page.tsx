@@ -123,7 +123,7 @@ export default function PostsPage() {
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-bold">All Posts</h1>
+          <h2 className="text-3xl font-bold">All Posts</h2>
         </div>
         <div className="text-center py-8">Loading posts...</div>
       </div>

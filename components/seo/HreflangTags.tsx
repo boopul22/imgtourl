@@ -7,6 +7,7 @@ interface HreflangTagsProps {
 
 export default function HreflangTags({ currentPath, availableLocales = ['en'] }: HreflangTagsProps) {
   const hreflangTags = generateHreflangTags(currentPath, availableLocales);
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://imagetourl.cloud';
   
   return (
     <>
@@ -18,11 +19,17 @@ export default function HreflangTags({ currentPath, availableLocales = ['en'] }:
           href={tag.href}
         />
       ))}
+      {/* Self-referencing hreflang annotation */}
+      <link
+        rel="alternate"
+        hrefLang="en-US"
+        href={`${baseUrl}${currentPath}`}
+      />
       {/* Default fallback */}
       <link
         rel="alternate"
         hrefLang="x-default"
-        href={`${process.env.NEXT_PUBLIC_APP_URL || 'https://imagetourl.cloud'}${currentPath}`}
+        href={`${baseUrl}${currentPath}`}
       />
     </>
   );

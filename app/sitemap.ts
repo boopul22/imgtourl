@@ -3,7 +3,14 @@ import { getAllPosts } from '@/lib/blog-data';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://imagetourl.cloud';
-  const posts = await getAllPosts();
+  
+  let posts;
+  try {
+    posts = await getAllPosts();
+  } catch (error) {
+    console.error('Error fetching posts for sitemap:', error);
+    posts = [];
+  }
 
   const staticPages = [
     {

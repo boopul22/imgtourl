@@ -6,8 +6,8 @@ import StructuredData from '@/components/seo/StructuredData';
 import { generateMetadata, SEO_KEYWORDS } from '@/lib/seo-utils';
 
 export const metadata = generateMetadata({
-  title: 'Bulk Image Upload - Multiple Photos to URLs at Once | ImageURL',
-  description: 'Upload multiple images simultaneously and generate URLs for all. Batch image upload with progress tracking and export options. Perfect for e-commerce and content creators.',
+  title: 'Bulk Image Upload - Multiple Photos to URLs | ImageURL',
+  description: 'Upload multiple images simultaneously and generate URLs for all. Batch processing with progress tracking and export options.',
   keywords: SEO_KEYWORDS.BULK_UPLOAD,
   canonical: '/bulk-image-upload',
   ogType: 'website',

@@ -95,6 +95,7 @@ export const generateMetadata = (config: SEOConfig): Metadata => {
       title: config.title,
       description: config.description,
       creator: '@imageurl',
+      site: '@imageurl',
       images: [config.ogImage || defaultImage],
     },
     alternates: {
@@ -158,7 +159,7 @@ export const generateHreflangTags = (currentPage: string, availableLocales: stri
   
   return availableLocales.map(locale => ({
     rel: 'alternate',
-    hrefLang: locale === 'en' ? 'en-US' : `${locale}-${locale.toUpperCase()}`,
+    hrefLang: locale === 'en' ? 'en-US' : locale,
     href: `${baseUrl}${currentPage}`,
   }));
 };

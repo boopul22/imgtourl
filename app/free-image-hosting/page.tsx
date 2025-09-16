@@ -6,8 +6,8 @@ import StructuredData from '@/components/seo/StructuredData';
 import { generateMetadata, SEO_KEYWORDS } from '@/lib/seo-utils';
 
 export const metadata = generateMetadata({
-  title: 'Free Image Hosting Service - Unlimited Storage & Direct Links | ImageURL',
-  description: 'Free image hosting service with unlimited storage. Upload any photo and get direct links instantly. No signup required, ad-free, and permanent image links that work everywhere.',
+  title: 'Free Image Hosting - Unlimited Storage | ImageURL',
+  description: 'Free image hosting with unlimited storage. Upload photos and get direct links instantly. No signup required, ad-free, permanent links.',
   keywords: SEO_KEYWORDS.FREE_HOSTING,
   canonical: '/free-image-hosting',
   ogType: 'website',

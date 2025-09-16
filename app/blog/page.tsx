@@ -12,7 +12,7 @@ import Breadcrumbs from '@/components/blog/Breadcrumbs';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Blog - Image Hosting Tips, Tutorials & Best Practices | ImageURL',
+  title: 'Blog - Image Hosting Tips & Tutorials | ImageURL',
   description: 'Learn about image hosting, URL generation, web optimization, and digital asset management. Expert tips and tutorials for better image sharing and hosting.',
   keywords: [
     'image hosting blog',

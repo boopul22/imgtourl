@@ -4,6 +4,7 @@ import { Calendar, Clock, User, ArrowLeft, Share2, Tag, Zap } from 'lucide-react
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Link from 'next/link';
+import Image from 'next/image';
 import StructuredData from '@/components/seo/StructuredData';
 import BlogJsonLd from '@/components/seo/BlogJsonLd';
 import { getPublishedPosts, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-storage-supabase';
@@ -89,10 +90,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {post.featuredImage && (
               <div className="aspect-video overflow-hidden rounded-lg">
-                <img
+                <Image
                   src={post.featuredImage}
                   alt={post.title}
+                  width={800}
+                  height={450}
                   className="w-full h-full object-cover"
+                  priority
                 />
               </div>
             )}

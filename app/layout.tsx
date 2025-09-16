@@ -90,7 +90,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    title: 'Free Image to URL Converter - No Sign-up Required',
+    description: 'Get shareable URLs instantly. 100% free image hosting with no sign-up required. Supports JPG, PNG, GIF up to 10MB',
     creator: '@imageurl',
+    site: '@imageurl',
     images: ['/og-image.jpg'],
   },
   robots: {

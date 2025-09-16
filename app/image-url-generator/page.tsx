@@ -6,7 +6,7 @@ import StructuredData from '@/components/seo/StructuredData';
 import { generateMetadata, SEO_KEYWORDS } from '@/lib/seo-utils';
 
 export const metadata = generateMetadata({
-  title: 'Image URL Generator - Create Shareable Links from Photos | ImageURL',
+  title: 'Image URL Generator - Create Links from Photos | ImageURL',
   description: 'Free image URL generator tool. Upload any photo and create shareable links instantly. Perfect for social media, forums, and websites. No signup required.',
   keywords: SEO_KEYWORDS.URL_GENERATOR,
   canonical: '/image-url-generator',

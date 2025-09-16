@@ -12,9 +12,35 @@ import PageLayout from '@/components/layout/PageLayout';
 export const metadata: Metadata = {
   title: 'About Us - Image to URL Converter',
   description: 'Learn about our mission to provide the best free image hosting service. Discover our story, values, and commitment to user privacy and security.',
+  openGraph: {
+    title: 'About Us - Image to URL Converter',
+    description: 'Learn about our mission to provide the best free image hosting service. Discover our story, values, and commitment to user privacy and security.',
+    type: 'website',
+    url: '/about',
+    siteName: 'Free Image to URL Converter',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'About Us - Image to URL Converter',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Us - Image to URL Converter',
+    description: 'Learn about our mission to provide the best free image hosting service. Discover our story, values, and commitment to user privacy and security.',
+    creator: '@imageurl',
+    site: '@imageurl',
+    images: ['/og-image.jpg'],
+  },
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    canonical: '/about',
   },
 };
 
