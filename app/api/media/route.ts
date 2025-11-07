@@ -2,22 +2,32 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ListObjectsV2Command, DeleteObjectCommand, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 import { r2Client, R2_CONFIG } from '@/lib/r2-client';
 
-// Secure password check for media management
-function checkPassword(request: NextRequest) {
+// Secure authentication check for media management
+function checkAuth(request: NextRequest) {
+  const providedUsername = request.headers.get('x-media-username');
   const providedPassword = request.headers.get('x-media-password');
+
+  const correctUsername = process.env.MEDIA_ADMIN_USERNAME || 'admin';
   const correctPassword = process.env.MEDIA_ADMIN_PASSWORD;
-  
-  if (!correctPassword) {
+
+  // For development, provide fallback credentials
+  const devUsername = process.env.NODE_ENV === 'development' ? 'admin' : null;
+  const devPassword = process.env.NODE_ENV === 'development' ? 'admin123' : null;
+
+  if (!correctPassword && !devPassword) {
     console.error('MEDIA_ADMIN_PASSWORD not set in environment variables');
     return false;
   }
-  
-  return providedPassword === correctPassword;
+
+  const usernameMatch = providedUsername === correctUsername || providedUsername === devUsername;
+  const passwordMatch = providedPassword === correctPassword || providedPassword === devPassword;
+
+  return usernameMatch && passwordMatch;
 }
 
 export async function GET(request: NextRequest) {
-  // Check password for media management
-  if (!checkPassword(request)) {
+  // Check authentication for media management
+  if (!checkAuth(request)) {
     return NextResponse.json(
       { error: 'Unauthorized' },
       { status: 401 }
@@ -120,8 +130,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
-  // Check password for media management
-  if (!checkPassword(request)) {
+  // Check authentication for media management
+  if (!checkAuth(request)) {
     return NextResponse.json(
       { error: 'Unauthorized' },
       { status: 401 }

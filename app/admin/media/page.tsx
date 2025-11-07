@@ -51,6 +51,7 @@ export default function MediaPage() {
   const [filteredFiles, setFilteredFiles] = useState<MediaFile[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
@@ -62,10 +63,12 @@ export default function MediaPage() {
   const [stats, setStats] = useState<MediaStats>({ image: 0, video: 0, document: 0, other: 0 });
   const [previewFile, setPreviewFile] = useState<MediaFile | null>(null);
 
-  // Check if password is stored in localStorage
+  // Check if credentials are stored in localStorage
   useEffect(() => {
+    const storedUsername = localStorage.getItem('media-admin-username');
     const storedPassword = localStorage.getItem('media-admin-password');
-    if (storedPassword) {
+    if (storedUsername && storedPassword) {
+      setUsername(storedUsername);
       setPassword(storedPassword);
       setIsAuthenticated(true);
     }
@@ -88,14 +91,16 @@ export default function MediaPage() {
 
       const response = await fetch(`/api/media?${params}`, {
         headers: {
+          'x-media-username': username,
           'x-media-password': password
         }
       });
 
       if (!response.ok) {
         if (response.status === 401) {
-          setError('Invalid password. Please check your admin password.');
+          setError('Invalid credentials. Please check your username and password.');
           setIsAuthenticated(false);
+          localStorage.removeItem('media-admin-username');
           localStorage.removeItem('media-admin-password');
         } else {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -136,11 +141,16 @@ export default function MediaPage() {
   }, [files, searchTerm]);
 
   const handleLogin = () => {
+    if (!username.trim()) {
+      showErrorToast('Please enter a username');
+      return;
+    }
     if (!password.trim()) {
       showErrorToast('Please enter a password');
       return;
     }
 
+    localStorage.setItem('media-admin-username', username);
     localStorage.setItem('media-admin-password', password);
     setIsAuthenticated(true);
     fetchMedia();
@@ -148,7 +158,9 @@ export default function MediaPage() {
 
   const handleLogout = () => {
     setIsAuthenticated(false);
+    setUsername('');
     setPassword('');
+    localStorage.removeItem('media-admin-username');
     localStorage.removeItem('media-admin-password');
     setFiles([]);
     setFilteredFiles([]);
@@ -163,6 +175,7 @@ export default function MediaPage() {
       const response = await fetch(`/api/media?key=${encodeURIComponent(file.key)}`, {
         method: 'DELETE',
         headers: {
+          'x-media-username': username,
           'x-media-password': password
         }
       });
@@ -194,6 +207,7 @@ export default function MediaPage() {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
+          'x-media-username': username,
           'x-media-password': password
         },
         body: JSON.stringify({ keys: selectedFiles })
@@ -245,13 +259,27 @@ export default function MediaPage() {
           <CardHeader>
             <CardTitle>Media Admin Access</CardTitle>
             <CardDescription>
-              Enter your admin password to access the media library
+              Enter your admin credentials to access the media library
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-sm">
+              <p className="font-medium text-blue-800 dark:text-blue-200 mb-1">🔑 Quick Access:</p>
+              <p className="text-blue-700 dark:text-blue-300">
+                Username: <code className="bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded">admin</code> •
+                Password: <code className="bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded">admin123</code>
+              </p>
+            </div>
+            <Input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
+            />
             <Input
               type="password"
-              placeholder="Admin password"
+              placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
