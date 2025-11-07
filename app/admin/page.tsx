@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { FileText, Plus, Eye, Edit } from 'lucide-react';
+import { FileText, Plus, Eye, Edit, Image } from 'lucide-react';
 import { getAllBlogPosts } from '@/lib/blog-storage-supabase';
 
 export default async function AdminDashboard() {
@@ -71,6 +71,13 @@ export default async function AdminDashboard() {
             <Button variant="outline">
               <FileText className="w-4 h-4 mr-2" />
               Manage Posts
+            </Button>
+          </Link>
+
+          <Link href="/admin/media">
+            <Button variant="outline">
+              <Image className="w-4 h-4 mr-2" />
+              Media Library
             </Button>
           </Link>
         </CardContent>
