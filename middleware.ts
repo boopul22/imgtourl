@@ -33,8 +33,8 @@ export async function middleware(request: NextRequest) {
 
   // Check admin authentication for admin routes
   if (isAdminRoute(request.nextUrl.pathname)) {
-    // Allow access to login page
-    if (request.nextUrl.pathname === '/admin/login') {
+    // Allow access to login page and media page (media page has its own auth)
+    if (request.nextUrl.pathname === '/admin/login' || request.nextUrl.pathname === '/admin/media') {
       return NextResponse.next();
     }
 
