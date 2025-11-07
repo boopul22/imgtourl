@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/theme/theme-provider';
@@ -222,6 +223,7 @@ export default function RootLayout({
           <CookieConsent />
           <AgeVerification />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
