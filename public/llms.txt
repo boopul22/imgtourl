@@ -1,0 +1,48 @@
+# ImageURL - Free Image to URL Converter
+
+ImageURL is a free, fast, and secure image hosting service that converts your images into shareable URLs instantly. No registration required, no ads, and unlimited usage.
+
+## What we do
+- Convert images to URLs instantly
+- Free image hosting with permanent links
+- Bulk image upload capabilities
+- Image optimization and compression
+- Secure image storage with privacy protection
+- Direct image links for embedding
+
+## Features
+- **Free Forever**: No hidden costs or premium tiers
+- **No Registration**: Start uploading immediately
+- **Instant URLs**: Get shareable links in seconds
+- **Bulk Upload**: Upload multiple images at once
+- **High Performance**: Global CDN for fast loading
+- **Privacy Focused**: Your images are secure
+- **All Formats**: JPG, PNG, GIF, WebP, and more
+- **Mobile Friendly**: Works on all devices
+
+## Use Cases
+- Blog and website images
+- Social media sharing
+- E-commerce product photos
+- Portfolio and gallery hosting
+- Email attachments replacement
+- API integrations
+- Content management systems
+
+## Technical Details
+- Maximum file size: 50MB
+- Supported formats: JPG, JPEG, PNG, GIF, WebP, BMP, TIFF, SVG
+- Global CDN delivery
+- 99.9% uptime guarantee
+- SSL encrypted transfers
+- Automatic image optimization
+
+## Contact
+- Website: https://imagetourl.cloud
+- Email: blog.boopul@gmail.com
+- Support: Available 24/7
+
+## Developer
+Created by Bipul Kumar, an indie developer from India passionate about creating simple, useful tools that solve real problems without unnecessary complexity.
+
+Last updated: 2025-01-16
