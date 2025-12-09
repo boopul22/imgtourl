@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAdminFromRequest } from '@/lib/auth';
-import { getBlogPostById, updateBlogPost, deleteBlogPost } from '@/lib/blog-storage-supabase';
+import { getBlogPostById, updateBlogPost, deleteBlogPost } from '@/lib/blog-storage';
 import { processHTMLContent, validateHTMLContent, extractExcerpt } from '@/lib/html-processor-server';
 
 interface RouteParams {
@@ -41,7 +41,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams) {
     }
 
     const data = await request.json();
-    
+
     // Validate required fields
     if (!data.title || !data.content || !data.slug) {
       return NextResponse.json(

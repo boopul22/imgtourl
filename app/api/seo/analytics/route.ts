@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPublishedPosts, getCategories } from '@/lib/blog-storage-supabase';
+import { getPublishedPosts, getCategories } from '@/lib/blog-storage';
 import { analyzeContentForSEO } from '@/lib/seo-utils';
 
 export const dynamic = 'force-dynamic';
@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url || '');
     const range = searchParams.get('range') || '30d';
-    
+
     // Calculate date range
     const daysAgo = range === '7d' ? 7 : range === '30d' ? 30 : 90;
     const cutoffDate = new Date();
@@ -19,7 +19,7 @@ export async function GET(request: NextRequest) {
     const categories = await getCategories();
 
     // Filter posts by date range
-    const filteredPosts = allPosts.filter(post => 
+    const filteredPosts = allPosts.filter(post =>
       new Date(post.publishedAt) >= cutoffDate
     );
 
@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
     // Calculate metrics
     const totalPosts = analyzedPosts.length;
     const totalWordCount = analyzedPosts.reduce((sum, post) => sum + post.seoAnalysis.wordCount, 0);
-    const averageSEOScore = totalPosts > 0 
+    const averageSEOScore = totalPosts > 0
       ? Math.round(analyzedPosts.reduce((sum, post) => sum + post.seoAnalysis.seoScore, 0) / totalPosts)
       : 0;
     const averageReadability = totalPosts > 0
@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
     });
 
     const topKeywords = Object.entries(keywordFrequency)
-      .sort(([,a], [,b]) => b - a)
+      .sort(([, a], [, b]) => b - a)
       .slice(0, 12)
       .map(([keyword]) => keyword);
 

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import StructuredData from '@/components/seo/StructuredData';
 import BlogListingJsonLd from '@/components/seo/BlogListingJsonLd';
-import { getPublishedPosts, getFeaturedPosts as getStorageFeaturedPosts, getCategories } from '@/lib/blog-storage-supabase';
+import { getPublishedPosts, getFeaturedPosts as getStorageFeaturedPosts, getCategories } from '@/lib/blog-storage';
 import BlogPostCard from '@/components/blog/BlogPostCard';
 import Breadcrumbs from '@/components/blog/Breadcrumbs';
 
@@ -60,7 +60,7 @@ export default async function BlogPage() {
             Image Hosting <span className="text-brand-orange">Blog</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Expert tips, tutorials, and best practices for image hosting, optimization, and sharing. 
+            Expert tips, tutorials, and best practices for image hosting, optimization, and sharing.
             Stay updated with the latest trends in digital asset management.
           </p>
         </div>
@@ -115,7 +115,7 @@ export default async function BlogPage() {
           <Card className="p-8 bg-brand-beige/20 dark:bg-brand-blue-gray/10">
             <h3 className="text-2xl font-bold mb-4 text-foreground">Stay Updated</h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Get the latest tips and tutorials about image hosting, optimization, and web performance 
+              Get the latest tips and tutorials about image hosting, optimization, and web performance
               delivered straight to your inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">

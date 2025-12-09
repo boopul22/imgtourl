@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { FileText, Plus, Eye, Edit, Image } from 'lucide-react';
-import { getAllBlogPosts } from '@/lib/blog-storage-supabase';
+import { getAllBlogPosts } from '@/lib/blog-storage';
 
 export default async function AdminDashboard() {
   const posts = await getAllBlogPosts();
@@ -66,7 +66,7 @@ export default async function AdminDashboard() {
               Create New Post
             </Button>
           </Link>
-          
+
           <Link href="/admin/posts">
             <Button variant="outline">
               <FileText className="w-4 h-4 mr-2" />

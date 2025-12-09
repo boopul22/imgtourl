@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import StructuredData from '@/components/seo/StructuredData';
 import BlogJsonLd from '@/components/seo/BlogJsonLd';
-import { getPublishedPosts, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-storage-supabase';
+import { getPublishedPosts, getBlogPostBySlug, getRelatedPosts } from '@/lib/blog-storage';
 import BlogPostCard from '@/components/blog/BlogPostCard';
 import Breadcrumbs from '@/components/blog/Breadcrumbs';
 import { generateBlogPostMetadata } from '@/lib/seo-utils';
@@ -83,7 +83,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 {post.category}
               </span>
             </div>
-            
+
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight">
               {post.title}
             </h1>
@@ -104,7 +104,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl">
               {post.excerpt}
             </p>
-            
+
             <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
               <div className="flex items-center space-x-2">
                 <User className="w-4 h-4" />
@@ -112,10 +112,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
               <div className="flex items-center space-x-2">
                 <Calendar className="w-4 h-4" />
-                <span>{new Date(post.publishedAt).toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
+                <span>{new Date(post.publishedAt).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
                 })}</span>
               </div>
               <div className="flex items-center space-x-2">
@@ -123,7 +123,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <span>{post.readTime}</span>
               </div>
             </div>
-            
+
             <div className="flex items-center space-x-4 pt-4">
               <Button variant="outline" size="sm">
                 <Share2 className="w-4 h-4 mr-2" />

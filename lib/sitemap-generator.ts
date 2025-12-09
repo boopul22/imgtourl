@@ -1,4 +1,5 @@
-import { getPublishedPosts, getCategories, getTags } from '@/lib/blog-storage-supabase';
+import { getPublishedPosts, getCategories } from '@/lib/blog-storage';
+import { getTags } from '@/lib/blog-data';
 import { generateSitemapEntry } from '@/lib/seo-utils';
 
 interface SitemapEntry {
@@ -28,21 +29,21 @@ export async function generateSitemap(): Promise<string> {
     generateSitemapEntry('/terms-of-service', new Date().toISOString(), 0.6),
     generateSitemapEntry('/content-guidelines', new Date().toISOString(), 0.6),
     generateSitemapEntry('/parental-consent', new Date().toISOString(), 0.6),
-    
+
     // Blog posts
     ...posts.map(post => generateSitemapEntry(
       `/blog/${post.slug}`,
       post.updatedAt || post.publishedAt,
       0.8
     )),
-    
+
     // Category pages
     ...categories.map(category => generateSitemapEntry(
       `/blog/category/${category.slug}`,
       new Date().toISOString(),
       0.7
     )),
-    
+
     // Tag pages
     ...tags.map(tag => generateSitemapEntry(
       `/blog/tag/${tag.slug}`,

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getAdminFromRequest } from '@/lib/auth';
-import { createBlogPost, getAllBlogPosts } from '@/lib/blog-storage-supabase';
+import { createBlogPost, getAllBlogPosts } from '@/lib/blog-storage';
 import { processHTMLContent, validateHTMLContent, extractExcerpt } from '@/lib/html-processor-server';
 import { nanoid } from 'nanoid';
 
@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     const data = await request.json();
-    
+
     // Validate required fields
     if (!data.title || !data.content || !data.slug) {
       return NextResponse.json(
