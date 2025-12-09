@@ -165,6 +165,15 @@ export default function RootLayout({
         <meta name="google-adsense-account" content="ca-pub-7803867089582138" />
         <meta name="monetag" content="1486d39a39156c9b88817b5292089214" />
 
+        {/* Additional Ad Network Script */}
+        <script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="191537"
+          async
+          data-cfasync="false"
+        ></script>
+
+
         {/* Favicon Links for Maximum Compatibility */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
